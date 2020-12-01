@@ -12,8 +12,8 @@ else
 	cd ~/comp30640project/project-faye-a/users
 	mkdir "$user"
 	cd ~/comp30640project/project-faye-a/users/"$user"
+	> wall
 	mkdir friends
-	> wall.txt
 	echo "OK: Directory created."
 exit 0
 fi
