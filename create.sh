@@ -12,7 +12,7 @@ else
 	cd ~/comp30640project/project-faye-a/users
 	mkdir "$user"
 	cd ~/comp30640project/project-faye-a/users/"$user"
-	> wall
+	touch wall
 	mkdir friends
 	echo "OK: Directory created."
 exit 0
