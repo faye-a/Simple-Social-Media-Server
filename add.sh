@@ -17,7 +17,7 @@ elif [ -d "$user/$friend" ]; then
 	echo "Error: $friend and $user are already friends." >&2
 	exit 4
 else
-cp -r "$friend" "$user/friends"
+echo  "$friend" >> "$user/friends"
 echo "OK: friend added."
 exit 0
 fi
