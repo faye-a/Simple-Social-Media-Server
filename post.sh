@@ -18,7 +18,7 @@ elif ! grep -Fxq "$sender" "$receiver/friends"; then
 	echo "Error: Sender $sender is not friends with $receiver" >&2
 	exit 4
 else
-echo "$sender : $message" >> "$receiver/wall"
+echo "$sender: $message" >> "$receiver/wall"
 echo "OK: message received."
 exit 0
 fi
