@@ -15,10 +15,10 @@ elif ! [ -d "users/$sender" ]; then
 	echo "Error: Sender $sender does not exist." >&2
 	exit 3
 elif ! grep -Fxq "$sender" "$receiver/friends"; then
-	echo "Error: Sender $sender is not friends with $receiver" >&2
-	exit 4
+        echo "Error: $friend and $user are not friends." >&2
+        exit 4
 else
 echo "$sender: $message" >> "$receiver/wall"
-echo "OK: message received."
+echo "OK: friend added."
 exit 0
 fi
