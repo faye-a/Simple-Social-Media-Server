@@ -11,7 +11,7 @@ exit 2
 else
 	mkdir "$user"
 	touch "$user/wall"
-	mkdir "$user/friends"
+	touch "$user/friends"
 	echo "OK: Directory created."
 exit 0
 fi
