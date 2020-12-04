@@ -9,9 +9,9 @@ elif [ -d ~/comp30640project/project-faye-a/users/"$user" ]; then
 	echo "Error: user already exists." >&2
 exit 2
 else
-	mkdir "users/$user"
-	touch "users/$user/wall"
-	mkdir "users/$user/friends"
+	mkdir "$user"
+	touch "$user/wall"
+	mkdir "$user/friends"
 	echo "OK: Directory created."
 exit 0
 fi
