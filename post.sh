@@ -8,10 +8,10 @@ message=$3
 if [ $# -ne 3 ]; then
 	echo "Error: parameters problem." >&2
 	exit 1
-elif ! [ -d "users/$receiver" ]; then
+elif ! [ -d "$receiver" ]; then
 	echo "Error: Receiver $receiver does not exist." >&2
 	exit 2
-elif ! [ -d "users/$sender" ]; then
+elif ! [ -d "$sender" ]; then
 	echo "Error: Sender $sender does not exist." >&2
 	exit 3
 elif ! grep -Fxq "$sender" "$receiver/friends"; then
