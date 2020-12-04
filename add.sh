@@ -13,7 +13,7 @@ elif ! [ -d "$user" ]; then
 elif ! [ -d "$friend" ]; then
 	echo "Error: $friend does not exist." >&2
 	exit 3
-elif [ grep -Fxq "$friend" "$user/friends" ]; then
+elif grep -Fxq "$friend" "$user/friends"; then
 	echo "Error: $friend and $user are already friends." >&2
 	exit 4
 else
