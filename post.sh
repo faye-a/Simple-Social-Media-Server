@@ -19,6 +19,6 @@ elif ! grep -Fxq "$sender" "$receiver/friends"; then
         exit 4
 else
 echo "$sender: $message" >> "$receiver/wall"
-echo "OK: friend added."
+echo "OK: message posted."
 exit 0
 fi
