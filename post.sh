@@ -1,11 +1,11 @@
 #!/bin/bash
 #creating to make a message to the friends wall
 
-receiver=$1
-sender=$2
-message=$3
+receiver="$1"
+sender="$2"
+message="$3"
 
-if [ $# -ne 3 ]; then
+if [ "$#" -lt 3 ]; then
 	echo "Error: parameters problem." >&2
 	exit 1
 elif ! [ -d "$receiver" ]; then
@@ -15,10 +15,12 @@ elif ! [ -d "$sender" ]; then
 	echo "Error: Sender $sender does not exist." >&2
 	exit 3
 elif ! grep -Fxq "$sender" "$receiver/friends"; then
-        echo "Error: $friend and $user are not friends." >&2
+        echo "Error: $sender and $receiver are not friends." >&2
         exit 4
 else
-echo "$sender: $message" >> "$receiver/wall"
-echo "OK: message posted."
+	./P.sh
+	echo "$sender: $message" >> "$receiver/wall"
+	echo "OK: message posted."
+	./V.sh
 exit 0
 fi
