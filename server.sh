@@ -3,26 +3,22 @@
 
 while true; do
 	read -a arr;
-	request=${arr[0]};
-
+	request="${arr[0]}";
 	case "$request" in
 		create)
-		./create.sh "${arr[1]}"
+		./create.sh "${arr[@]:1}"
 		;;
 		add)
-		# do something
 		./add.sh "${arr[@]:1}"
 		;;
 		post)
-		# do something
-		./post.sh "${arr[@]:1}"
+		./post.sh "${arr[1]}" "${arr[2]}" "$(echo ${arr[@]:3})"
 		;;
 		show)
-		# do something
 		./show.sh "${arr[@]:1}"
 		;;
 		shutdown)
-		# do something
+		echo "Server is shutting down.."
 		break
 		exit 0
 		;;
