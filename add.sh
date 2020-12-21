@@ -17,9 +17,9 @@ elif grep -Fxq "$friend" "$user/friends"; then
 	echo "Error: $friend and $user are already friends." >&2
 	exit 4
 else
-	./P.sh
+	./P.sh "$user"
 	echo  "$friend" >> "$user/friends"
 	echo "OK: friend added."
-	./V.sh
+	./V.sh "$user"
 exit 0
 fi

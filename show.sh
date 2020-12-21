@@ -10,10 +10,10 @@ elif ! [ -d "$user" ]; then
 	echo "Error: $user does not exist." >&2
 	exit 2
 else
-	./P.sh
+	./P.sh "$user"
 	echo "WallStart"
 	cat "$user/wall"
 	echo "WallEnd"
-	./V.sh
+	./V.sh "$user"
 exit 0
 fi
