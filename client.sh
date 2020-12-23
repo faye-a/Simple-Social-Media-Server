@@ -7,17 +7,22 @@ friend="$4"
 message="$5"
 array=("create" "add" "post" "show" "shutdown")
 
-mkfifo "$id".pipe
 #error checking
 if [ "$#" -lt 2 ]; then
 	echo "Error: parameters problem." >&2
 	rm "$id".pipe
 	exit 1
-elif ! [[ ! "${array[$req]}" ]]; then
-	echo "Error. Command not recognised." >&2
+elif [[ ! "${array[$req]}" ]]; then
+	echo "Error. $req Command not recognised." >&2
 	rm "$id".pipe
 	exit 2
+
+elif [[ -p "$id".pipe ]]; then
+	echo "Error. $id.pipe already exists. Could not execute the command." >&2
+	exit 3
 else
+	mkfifo "$id".pipe
+
 	if [[ "$req" == "create" ]]; then
 		echo "$id $req $user" > server.pipe
 	elif [[ "$req" == "add" ]]; then
@@ -36,6 +41,7 @@ while read output; do
 	echo "$output"
 	break
 done < "$id".pipe
-exit 0
 rm "$id".pipe
+exit 0
+
 
