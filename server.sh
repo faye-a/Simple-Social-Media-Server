@@ -2,7 +2,7 @@
 #!/bin/bash
 #creating a script server.sh
 
-while true; do
+(while true; do
 	mkfifo server.pipe
 	read -a arr < server.pipe
 	request="${arr[1]}";
@@ -32,4 +32,4 @@ while true; do
 	esac
 	rm server.pipe
 done
-exit 0
+exit 0)&
